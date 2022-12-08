@@ -22,15 +22,15 @@ func main() {
 		fmt.Scanln(&element)
 		slice[i] = element
 	}
-	fmt.Println("\n --- unsorted --- \n\n", slice)
-	fmt.Println("\n--- sorted ---\n\n", MergeSort(slice), "\n")
+	fmt.Println("\n -------------original list---------- \n\n", slice)
+	fmt.Println("\n --------------sorted list-----------\n\n", MergeSort(slice), "\n")
 }
 
 
 // runs mergesort algorithm
 func MergeSort(sourceslice []int) []int {
 
-	if len(sourceslice) < 2 {
+	if len(sourceslice) <= 1 {
 		return sourceslice
 	}
 	middle := (len(sourceslice)) / 2
@@ -40,7 +40,8 @@ func MergeSort(sourceslice []int) []int {
 //merges left and right
 func Merger(left, right []int) []int {
 
-	size, leftcounter, rightcounter := len(left)+len(right), 0, 0
+	size := (len(left) + len(right))
+	var leftcounter, rightcounter int
 	slice := make([]int, size, size)
 	count := 0
 
